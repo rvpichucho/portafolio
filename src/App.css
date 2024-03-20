@@ -36,3 +36,78 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: deeppink;
+  padding: 20px; /* Agregamos un relleno al contenedor */
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Centramos los botones horizontalmente */
+}
+
+.table-container {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow-x: auto; /* Agregamos desplazamiento horizontal si la tabla es demasiado grande */
+  width: 100%; /* Hacemos que la tabla ocupe todo el ancho del contenedor */
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Fijamos el diseño de la tabla para que el ancho se ajuste automáticamente */
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word; /* Permitimos que las palabras largas se rompan y se ajusten al ancho de la celda */
+}
+
+
+.table-container th {
+  background-color: azure;
+}
+
+.mensaje {
+  color: blue;
+  text-align: center; /* Centramos el texto del mensaje */
+  font-size: 24px; /* Ajustamos el tamaño del texto para dispositivos móviles */
+}
+
+.boton,
+.boton_actualizar {
+  background-color: chocolate;
+  font-size: 16px; /* Ajustamos el tamaño del texto para dispositivos móviles */
+  border-radius: 20px; /* Ajustamos el radio del borde para que los botones se vean mejor */
+  padding: 10px 20px; /* Agregamos un relleno al botón */
+  margin: 5px; /* Añadimos margen entre los botones */
+}
+
+.tabla {
+  background-color: white;
+  overflow-x: auto; /* Agregamos desplazamiento horizontal si la tabla es demasiado grande */
+  max-width: 100%; /* Aseguramos que la tabla no exceda el ancho del contenedor */
+}
+
+/* Media Query para dispositivos móviles */
+@media screen and (max-width: 600px) {
+  .mensaje {
+    font-size: 18px; /* Ajustamos el tamaño del texto del mensaje para dispositivos móviles */
+  }
+
+  .boton,
+  .boton_actualizar {
+    font-size: 14px; /* Ajustamos el tamaño del texto del botón para dispositivos móviles */
+  }
+}
