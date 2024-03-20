@@ -18,7 +18,7 @@ function App() {
           setProcesoEnEjecucion(true);
         })
         .catch(error => {
-          console.error('Error al iniciar el proceso:', error);
+          console.error('Error al iniciar el proceso!:', error);
         });
     }
   };
