@@ -1,0 +1,44 @@
+.container_title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Opcional: ajusta la altura según tus necesidades */
+  }
+  
+  .color_text_habi {
+    color: white !important;
+    font-weight: bold !important;
+    background: linear-gradient(90deg, #fe3051, #ff6074);
+    transition: transform 0.3s ease;
+    padding: 1vh 2vw; /* Ajustar el espaciado vertical y horizontal */
+    border-radius: 20px;
+    font-size: 2vw;
+    display: inline-block; /* Para centrar el texto */
+}
+.style_img_habi{
+	width: 10vw;
+	height: 6vw;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(53,53,92,1) 35%, rgba(0,212,255,1) 100%);
+	background-size: 100vw ;
+	margin-top: 1vh;
+	align-items: center;
+	border-radius: 20px;
+
+}
+
+.icon-container_habi {
+	display: flex; /* Utiliza el modelo de caja flexible */
+	align-items: center; /* Centra los elementos verticalmente */
+	margin-top: 3vh; /* Cambiado a unidades relativas */
+	margin-left: 11vw; /* Cambiado a unidades relativas */
+	margin-right: 5vw; /* Cambiado a unidades relativas */
+	
+  }
+  .style_title{
+	display: flex;
+	color: azure;
+	font-size: 50px;
+	justify-content: center;
+	
+  }
