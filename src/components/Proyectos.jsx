@@ -1,36 +1,44 @@
-import "../styles/inicio.css";
+import "../styles/proyectos.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Card, Button, CardGroup } from "react-bootstrap";
-import foto from "../assets/fotoR.png";
-import facebook from "../assets/facebook-1@3x.png";
-import instagram from "../assets/instagram-1@3x.png";
-import git from "../assets/github-1@3x.png";
-import link from "../assets/linkedin-1-1@3x.png";
+import { Container, Card, CardGroup } from "react-bootstrap";
+import arma from "../assets/armas.jpg";
+import kaizen from '../assets/kaizen-1-1@2x.png'
+import detect from '../assets/Circuito.jpg'
 function Proyectos() {
   return (
     <Container fluid className="p-4" id="Proyectos">
+      <Card.Title className="style_title_proyectos"> Mis Proyectos</Card.Title>  
+      <div className="icon_container_proyecto">
+        
       <CardGroup>
         <Card className="container_card">
           <Card.Body>
-            <Card.Text className="color_text">¡Hola y bienvenido/a mi portafolio digital!</Card.Text>
-            <Card.Text className="color_parrafo">
-              Soy Romel Pichucho, un apasionado ingeniero en software con una sólida formación y experiencia en el desarrollo de soluciones tecnológicas innovadoras.
+          <Card.Img className="image_style_proyecto mx-auto d-block" src={detect} />
+          <Card.Text className="color_parrafo_proyecto">
+          Sistema de Re-identificacion de personas mediante su rostro o mediante el cuerpo en un circuito cerrado de camaras
             </Card.Text>
-            <Button className="button_style">Descarga CV</Button>
-            <div className="icon-container">
-              <Card.Img className="icon_style mx-auto d-block" src={link} />
-              <Card.Img className="icon_style mx-auto d-block" src={facebook} />
-              <Card.Img className="icon_style mx-auto d-block" src={instagram} />
-              <Card.Img className="icon_style mx-auto d-block" src={git} />
-            </div>
           </Card.Body>
         </Card>
         <Card className="container_card">
           <Card.Body>
-            <Card.Img className="image_style mx-auto d-block" src={foto} />
+            <Card.Img className="image_style_proyecto mx-auto d-block" src={kaizen} />
+            <Card.Text className="color_parrafo_proyecto" > Sistema de obtencion de informacion mediante su cedula de identidad
+            </Card.Text>
           </Card.Body>
         </Card>
+
+        <Card className="container_card">
+          <Card.Body>
+            <Card.Img className="image_style_proyecto mx-auto d-block" src={arma} />
+            <Card.Text className="color_parrafo_proyecto">
+          Sistema de detecion de personas con armas de fuego y armas blancas.
+         
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        
       </CardGroup>
+      </div>
     </Container>
   );
 }

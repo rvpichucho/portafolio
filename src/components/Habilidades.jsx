@@ -17,21 +17,21 @@ function Habilidades() {
         <Card className="container_card">
           <Card.Body>
           <Card.Title className="style_title"> Mis habilidades</Card.Title>  
-          <div className="icon-container_habi ">
+          <div className="icon_container_habi">
           <Card.Text className="color_text_habi">Back-End</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={laravel} />
           <Card.Img className="style_img_habi mx-auto d-block" src={node} />
           <Card.Img className="style_img_habi mx-auto d-block" src={fast} />
           <Card.Img className="style_img_habi mx-auto d-block" src={flask} />
           </div>
-          <div className="icon-container_habi ">
+          <div className="icon_container_habi">
           <Card.Text className="color_text_habi">Front-End</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={angular} />
           <Card.Img className="style_img_habi mx-auto d-block" src={reactjs} />
           <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
+          <Card.Img className="style_img_habi mx-auto d-block hidden-image" src={pytorch} />
           </div>
-          <div className="icon-container_habi ">
+          <div className="icon_container_habi">
             
           <Card.Text className="color_text_habi">App-Movil</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={reactnt} />
@@ -39,7 +39,7 @@ function Habilidades() {
           <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
           <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
           </div>
-          <div className="icon-container_habi ">
+          <div className="icon_container_habi">
           <Card.Text className="color_text_habi">Inteligencia</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
           <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
