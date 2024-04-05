@@ -17,11 +17,11 @@ function Inicio() {
               Soy Romel Pichucho, un apasionado ingeniero en software con una sólida formación y experiencia en el desarrollo de soluciones tecnológicas innovadoras.
             </Card.Text>
             <Button className="button_style">Descarga CV</Button>
-            <div className="icon-container mx-auto d-block">
-              <Card.Img className="icon_style" src={link} />
-              <Card.Img className="icon_style" src={facebook} />
-              <Card.Img className="icon_style" src={instagram} />
-              <Card.Img className="icon_style" src={git} />
+            <div className="icon-container">
+              <Card.Img className="icon_style mx-auto d-block" src={link} />
+              <Card.Img className="icon_style mx-auto d-block" src={facebook} />
+              <Card.Img className="icon_style mx-auto d-block" src={instagram} />
+              <Card.Img className="icon_style mx-auto d-block" src={git} />
             </div>
           </Card.Body>
         </Card>
