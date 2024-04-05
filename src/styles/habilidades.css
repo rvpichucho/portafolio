@@ -54,7 +54,7 @@
   @media (max-width: 768px) {
 	.style_title{
 	  font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
-	  margin-top: 2vh;
+	  margin-top: 20vh;
 	}
 
   }
