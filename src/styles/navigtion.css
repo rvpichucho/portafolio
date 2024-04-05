@@ -1,0 +1,55 @@
+.footer {
+    position:fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: indigo;
+    color: white;
+    
+  }
+  .header {
+    position: fixed; /* Fija el encabezado en la parte superior de la pantalla */
+    top: 0; /* Lo mantiene en la parte superior */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+    font-size: 20px;
+}
+
+.header-container {
+  max-width: 1440px; /* Ancho máximo del contenido del encabezado */
+  margin: 0 auto; /* Centra el contenido */
+}
+
+.menu {
+  list-style-type: none; /* Quita los estilos de viñeta de la lista */
+  padding: 0; /* Quita el relleno predeterminado de la lista */
+  text-align: right; /* Alinea el texto a la derecha */
+  margin-top: 10px;
+}
+
+.menu li {
+  display: inline-block; /* Muestra los elementos de la lista en línea */
+  margin-left: 20px; /* Espacio entre elementos de la lista */
+}
+
+.menu li:first-child {
+  margin-left: 0; /* Quita el margen izquierdo del primer elemento */
+}
+
+.menu li a {
+  color: #fff; /* Color del enlace */
+  text-decoration: none; /* Quita la subraya predeterminada del enlace */
+}
+
+.menu li a:hover {
+  text-decoration: underline; /* Añade subraya al pasar el ratón sobre el enlace */
+}
+
+.body-content{
+  background-color: black;
+}
