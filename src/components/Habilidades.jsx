@@ -11,6 +11,12 @@ import sklear from '../assets/sklearn.png';
 import flutter from '../assets/flutter.png';
 import fast from '../assets/fast.png';
 import node from '../assets/nodejs-removebg-preview.png';
+import html from '../assets/html.png';
+import css from '../assets/CSS.png';
+import dart from '../assets/dart.png';
+import numpy from '../assets/numpy.png';
+import opencv from '../assets/opencv.png';
+import axios from '../assets/axios.png';
 function Habilidades() {
   return (
     <Container fluid className="p-4" id="Habilidades">
@@ -28,23 +34,23 @@ function Habilidades() {
           <Card.Text className="color_text_habi">Front-End</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={angular} />
           <Card.Img className="style_img_habi mx-auto d-block" src={reactjs} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
-          <Card.Img className="style_img_habi mx-auto d-block hidden-image" src={pytorch} />
+          <Card.Img className="style_img_habi mx-auto d-block" src={html} />
+          <Card.Img className="style_img_habi mx-auto d-block hidden-image" src={css} />
           </div>
           <div className="icon_container_habi">
             
           <Card.Text className="color_text_habi">App-Movil</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={reactnt} />
           <Card.Img className="style_img_habi mx-auto d-block" src={flutter} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
+          <Card.Img className="style_img_habi mx-auto d-block" src={dart} />
+          <Card.Img className="style_img_habi mx-auto d-block" src={axios} />
           </div>
           <div className="icon_container_habi">
           <Card.Text className="color_text_habi">Inteligencia</Card.Text>
           <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
           <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={sklear} />
-          <Card.Img className="style_img_habi mx-auto d-block" src={pytorch} />
+          <Card.Img className="style_img_habi mx-auto d-block" src={numpy} />
+          <Card.Img className="style_img_habi mx-auto d-block" src={opencv} />
           
        
           </div>

@@ -13,7 +13,7 @@ function Portafolio(){
         <Inicio/>
         <Acerca/>
         <Habilidades/>
-        <Proyectos/>
+        <Proyectos />
         <Footer/>
        </div>
       
