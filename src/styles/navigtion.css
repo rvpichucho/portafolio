@@ -56,3 +56,29 @@ background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-2
 background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+@media (max-width: 768px) {
+	.footer{
+    position:fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    
+	}
+  .header {
+    position: fixed; /* Fija el encabezado en la parte superior de la pantalla */
+    top: 0; /* Lo mantiene en la parte superior */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+    font-size: 15px;
+  }
+
+  }

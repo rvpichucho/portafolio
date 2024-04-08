@@ -58,3 +58,28 @@
 	}
 
   }
+
+
+  @media (max-width: 768px) {
+	.style_img_habi{
+	width: 14vw;
+	height: 12vw;
+	border-radius: 10px;
+}
+.icon_container_habi {
+	display: flex; /* Utiliza el modelo de caja flexible */
+	align-items: center; /* Centra los elementos verticalmente */
+	margin-left: 0vw; /* Cambiado a unidades relativas */
+	margin-right: 0vw; /* Cambiado a unidades relativas */
+	
+  }
+  .color_text_habi {
+    background: linear-gradient(90deg, #fe3051, #ff6074);
+    transition: transform 0.3s ease;
+    padding: 1vh 1vw; /* Ajustar el espaciado vertical y horizontal */
+    border-radius: 10px;
+    font-size: 2.5vw;
+    display: inline-block; /* Para centrar el texto */
+}
+
+  }

@@ -7,6 +7,10 @@ import instagram from "../assets/instagram-1@3x.png";
 import git from "../assets/github-1@3x.png";
 import link from "../assets/linkedin-1-1@3x.png";
 function Inicio() {
+  const descargarCV=()=>{
+    const urlCV="https://drive.google.com/file/d/1vt8z7Ncb6lV4hRSE3kLpnQekSSNXBNWw/view?usp=sharing";
+    window.open(urlCV, "_blank");
+  };
   return (
     <Container fluid className="p-4" id="Inicio">
       <CardGroup>
@@ -16,12 +20,16 @@ function Inicio() {
             <Card.Text className="color_parrafo">
               Soy Romel Pichucho, un apasionado ingeniero en software con una sólida formación y experiencia en el desarrollo de soluciones tecnológicas innovadoras.
             </Card.Text>
-            <Button className="button_style">Descarga CV</Button>
+            <Button className="button_style" onClick={descargarCV}>Descarga CV</Button>
             <div className="icon-container">
-              <Card.Img className="icon_style mx-auto d-block" src={link} />
+            <a href="https://www.linkedin.com/in/romel-vinicio-pichucho-tandalla-302212185" target="_blank" rel="noopener noreferrer">
+                <Card.Img className="icon_style mx-auto d-block" src={link} />
+              </a>
               <Card.Img className="icon_style mx-auto d-block" src={facebook} />
               <Card.Img className="icon_style mx-auto d-block" src={instagram} />
+              <a href="https://github.com/rvpichucho" target="_blank" rel="noopener noreferrer">
               <Card.Img className="icon_style mx-auto d-block" src={git} />
+              </a>
             </div>
           </Card.Body>
         </Card>
