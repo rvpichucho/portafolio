@@ -41,5 +41,11 @@
 	}
 	.color_parrafo_proyecto{
 	  font-size: 3vw; /* Ajustamos el tamaño del texto para tabletas */
+	  margin: 0;
+	  
+	}
+	.image_style_proyecto{
+		width: 50vw !important;
+		height: 50vw;
 	}
   }

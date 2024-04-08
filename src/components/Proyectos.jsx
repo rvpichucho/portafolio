@@ -36,7 +36,6 @@ function Proyectos() {
         </Card>
         
       </CardGroup>
-      
       </div>
       
     </Container>

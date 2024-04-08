@@ -144,36 +144,7 @@
 	}
   }*/
   
-@media (max-width: 768px) {
-	.color_text {
-	  font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
-	  margin-top: 2vh;
-	}
-	.color_parrafo {
-	  font-size: 3vw; /* Ajustamos el tamaño del texto para tabletas */
-	}
-	.icon_style {
-		width: 5vw !important; /* Cambiado a unidades relativas */
-		height: 5vw;
-	  }
-	.image_style{
-		margin-top: 1px;
-	}
-	.color_text_acerca {
-		font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
-		margin-top: 1vh;
-		margin: 0;
-	  }
-	  .color_parrafo_acerca{
-		font-size: 2.2vw; /* Ajustamos el tamaño del texto para tabletas */
-		font-weight:bold;
-	  }
-	  .image_style_acerca{
-		  width: 50vw !important;
-		  height: auto;
-		  margin-top: 5vh;
-	  }
-  }
+
 
   .color_text {
     margin: 0;
@@ -197,3 +168,33 @@
         background-position: 200% center;
     }
 }
+@media (max-width: 768px) {
+	.color_text {
+	  font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
+	  margin-top: 2vh;
+	}
+	.color_parrafo {
+	  font-size: 3vw; /* Ajustamos el tamaño del texto para tabletas */
+	}
+	.icon_style {
+		width: 5vw !important; /* Cambiado a unidades relativas */
+		height: 5vw;
+	  }
+	.image_style{
+		margin-top: 1px;
+	}
+	.color_text_acerca {
+		font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
+		margin-top: 1vh;
+		margin: 0;
+	  }
+	  .color_parrafo_acerca{
+		font-size: 2.5vw; /* Ajustamos el tamaño del texto para tabletas */
+		font-weight:bold;
+	  }
+	  .image_style_acerca{
+		  width: 50vw !important;
+		  height: auto;
+		  margin-top: 5vh;
+	  }
+  }
