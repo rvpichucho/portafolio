@@ -1,51 +1,53 @@
-
-.image_style_proyecto{
-	width: 25vw !important;
+.image_style_proyecto {
+	width: 45vw !important;
 	height: 25vw;
 	margin-top: 0;
 	box-shadow: -31px -25px 27px rgba(0, 0, 0, 0.6);
-    
-}
-.color_parrafo_proyecto{
+  }
+  
+  .color_parrafo_proyecto {
 	background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: bold;
-	padding: 1vh; /* Cambiado a unidades relativas */
-	font-size: 1.2vw; /* Cambiado a unidades relativas */
-	margin-left: 1vw; /* Cambiado a unidades relativas */
+	padding: 1vh;
+	font-size: 1.5em; /* Utilizamos em para que el tamaño sea relativo al de la imagen */
+	margin: 0 auto; /* Centra el texto */
+	width: 45vw; /* Coincide con el ancho de la imagen */
 	text-align: justify;
-    
-}
-.style_title_proyectos{
+  }
+  
+  .style_title_proyectos {
 	display: flex;
 	color: azure;
 	font-size: 50px;
-	justify-content: center!important;
-    margin-top: 40px;
-    	
+	justify-content: center !important;
+	margin-top: 40px;
   }
-  .icon_container_proyecto{
-  display: flex; /* Utiliza el modelo de caja flexible */
-	align-items: center; /* Centra los elementos verticalmente */
-	margin-top: 3vh; /* Cambiado a unidades relativas */
-	margin-left: 5vw; /* Cambiado a unidades relativas */
-	margin-right: 5vw; /* Cambiado a unidades relativas */
-    width: 90%;
+  
+  .icon_container_proyecto {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3vh;
+	margin-left: 5vw;
+	margin-right: 5vw;
+	width: 90%;
   }
+  
   @media (max-width: 768px) {
-	.style_title_proyectos{
-	  font-size: 6vw; /* Ajustamos el tamaño del texto para tabletas */
+	.style_title_proyectos {
+	  font-size: 6vw;
 	  margin-top: 10vh;
 	}
-	.color_parrafo_proyecto{
-	  font-size: 3vw; /* Ajustamos el tamaño del texto para tabletas */
-	  margin: 0;
-	  
+	.color_parrafo_proyecto {
+	  font-size: 1.5em; /* Ajusta el tamaño del texto relativo al tamaño de la imagen */
+	  width: 50vw; /* Coincide con el ancho de la imagen */
 	}
-	.image_style_proyecto{
-		width: 50vw !important;
-		height: 50vw;
+	.image_style_proyecto {
+	  width: 50vw !important;
+	  height: 50vw;
 	}
   }
+  

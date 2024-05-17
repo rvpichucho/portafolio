@@ -8,7 +8,7 @@ import git from "../assets/github-1@3x.png";
 import link from "../assets/linkedin-1-1@3x.png";
 function Inicio() {
   const descargarCV=()=>{
-    const urlCV="https://drive.google.com/file/d/1vt8z7Ncb6lV4hRSE3kLpnQekSSNXBNWw/view?usp=sharing";
+    const urlCV="https://drive.google.com/file/d/1GHLj_t9axgAY5fMP9EvupFW6uExRjKmy/view?usp=sharing";
     window.open(urlCV, "_blank");
   };
   return (
