@@ -1,7 +1,6 @@
 .image_style_proyecto {
-	width: 45vw !important;
-	height: 25vw;
-	margin-top: 0;
+	width: 100%;
+	height: 35vw; /* Ajustar la altura automáticamente */
 	box-shadow: -31px -25px 27px rgba(0, 0, 0, 0.6);
   }
   
@@ -12,9 +11,8 @@
 	-webkit-text-fill-color: transparent;
 	font-weight: bold;
 	padding: 1vh;
-	font-size: 1.5em; /* Utilizamos em para que el tamaño sea relativo al de la imagen */
-	margin: 0 auto; /* Centra el texto */
-	width: 45vw; /* Coincide con el ancho de la imagen */
+	font-size: 1.5em;
+	margin: 0; /* Remover margin auto */
 	text-align: justify;
   }
   
@@ -26,16 +24,6 @@
 	margin-top: 40px;
   }
   
-  .icon_container_proyecto {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 3vh;
-	margin-left: 5vw;
-	margin-right: 5vw;
-	width: 90%;
-  }
-  
   @media (max-width: 768px) {
 	.style_title_proyectos {
 	  font-size: 6vw;
@@ -43,11 +31,11 @@
 	}
 	.color_parrafo_proyecto {
 	  font-size: 1.5em; /* Ajusta el tamaño del texto relativo al tamaño de la imagen */
-	  width: 50vw; /* Coincide con el ancho de la imagen */
+	  width: 100%; /* Ajuste responsivo para móviles */
 	}
 	.image_style_proyecto {
-	  width: 50vw !important;
-	  height: 50vw;
+	  width: 100% !important; /* Ajuste responsivo para móviles */
+	  height: auto;
 	}
   }
   
