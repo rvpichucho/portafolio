@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background: var(--bg-color);
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 .App-logo {
@@ -14,14 +18,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--header-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--header-text);
 }
 
 .App-link {
@@ -36,78 +40,120 @@
     transform: rotate(360deg);
   }
 }
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: deeppink;
-  padding: 20px; /* Agregamos un relleno al contenedor */
+  background-color: var(--bg-color);
+  padding: 20px;
+  color: var(--text-color);
 }
 
 .button-container {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Centramos los botones horizontalmente */
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .table-container {
   margin-top: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-bg);
   border-radius: 5px;
-  overflow-x: auto; /* Agregamos desplazamiento horizontal si la tabla es demasiado grande */
-  width: 100%; /* Hacemos que la tabla ocupe todo el ancho del contenedor */
+  overflow-x: auto;
+  width: 100%;
+  background-color: var(--card-bg);
 }
 
 .table-container table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Fijamos el diseño de la tabla para que el ancho se ajuste automáticamente */
+  table-layout: fixed;
 }
 
 .table-container th,
 .table-container td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-bg);
   padding: 8px;
   text-align: left;
-  word-wrap: break-word; /* Permitimos que las palabras largas se rompan y se ajusten al ancho de la celda */
+  word-wrap: break-word;
 }
 
-
 .table-container th {
-  background-color: azure;
+  background-color: var(--header-bg);
+  color: var(--header-text);
 }
 
 .mensaje {
-  color: blue;
-  text-align: center; /* Centramos el texto del mensaje */
-  font-size: 24px; /* Ajustamos el tamaño del texto para dispositivos móviles */
+  color: var(--text-color);
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0;
 }
 
 .boton,
 .boton_actualizar {
-  background-color: chocolate;
-  font-size: 16px; /* Ajustamos el tamaño del texto para dispositivos móviles */
-  border-radius: 20px; /* Ajustamos el radio del borde para que los botones se vean mejor */
-  padding: 10px 20px; /* Agregamos un relleno al botón */
-  margin: 5px; /* Añadimos margen entre los botones */
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton:hover,
+.boton_actualizar:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .tabla {
-  background-color: white;
-  overflow-x: auto; /* Agregamos desplazamiento horizontal si la tabla es demasiado grande */
-  max-width: 100%; /* Aseguramos que la tabla no exceda el ancho del contenedor */
+  background-color: var(--card-bg);
+  overflow-x: auto;
+  max-width: 100%;
+  color: var(--text-color);
 }
 
 /* Media Query para dispositivos móviles */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .mensaje {
-    font-size: 18px; /* Ajustamos el tamaño del texto del mensaje para dispositivos móviles */
+    font-size: 18px;
   }
 
   .boton,
   .boton_actualizar {
-    font-size: 14px; /* Ajustamos el tamaño del texto del botón para dispositivos móviles */
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .mensaje {
+    font-size: 16px;
+  }
+  
+  .table-container {
+    font-size: 14px;
   }
 }

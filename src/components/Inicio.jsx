@@ -21,14 +21,26 @@ function Inicio() {
               Soy Romel Pichucho, un apasionado ingeniero en software con una sólida formación y experiencia en el desarrollo de soluciones tecnológicas innovadoras.
             </Card.Text>
             <Button className="button_style" onClick={descargarCV}>Descarga CV</Button>
-            <div className="icon-container">
-            <a href="https://www.linkedin.com/in/romel-vinicio-pichucho-tandalla-302212185" target="_blank" rel="noopener noreferrer">
-                <Card.Img className="icon_style mx-auto d-block" src={link} />
+            <div className="social-icons-container">
+              <a href="https://www.linkedin.com/in/romel-vinicio-pichucho-tandalla-302212185" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+                <div className="social-icon linkedin-icon">
+                  <img src={link} alt="LinkedIn" />
+                </div>
               </a>
-              <Card.Img className="icon_style mx-auto d-block" src={facebook} />
-              <Card.Img className="icon_style mx-auto d-block" src={instagram} />
-              <a href="https://github.com/rvpichucho" target="_blank" rel="noopener noreferrer">
-              <Card.Img className="icon_style mx-auto d-block" src={git} />
+              <a href="/" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+                <div className="social-icon facebook-icon">
+                  <img src={facebook} alt="Facebook" />
+                </div>
+              </a>
+              <a href="/" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+                <div className="social-icon instagram-icon">
+                  <img src={instagram} alt="Instagram" />
+                </div>
+              </a>
+              <a href="https://github.com/rvpichucho" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+                <div className="social-icon github-icon">
+                  <img src={git} alt="GitHub" />
+                </div>
               </a>
             </div>
           </Card.Body>
