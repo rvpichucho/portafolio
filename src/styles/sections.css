@@ -1,0 +1,120 @@
+/* ========================================
+   ESTILOS UNIFICADOS PARA TODAS LAS SECCIONES
+   ======================================== */
+
+/* Configuración base de secciones */
+section {
+  position: relative;
+  width: 100%;
+  padding: 40px 20px;
+  min-height: auto;
+  scroll-margin-top: 80px;
+  overflow-x: hidden;
+}
+
+/* Sección Hero/Inicio - Sin scroll-margin */
+#Inicio {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  scroll-margin-top: 0;
+}
+
+/* Contenedores centralizados */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Títulos de sección unificados */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 60px;
+  position: relative;
+  padding-top: 0;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+/* ========================================
+   RESPONSIVE GLOBAL
+   ======================================== */
+
+@media (max-width: 992px) {
+  section {
+    padding: 80px 20px;
+    scroll-margin-top: 70px;
+  }
+  
+  section:not(#Inicio) {
+    padding-top: 75px;
+  }
+  
+  #Acerca {
+    padding-top: 75px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 15px;
+    scroll-margin-top: 65px;
+  }
+  
+  section:not(#Inicio) {
+    padding-top: 65px;
+  }
+  
+  #Acerca {
+    padding: 65px 15px 40px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 50px 15px;
+    scroll-margin-top: 60px;
+  }
+  
+  section:not(#Inicio) {
+    padding-top: 60px;
+  }
+  
+  #Acerca {
+    padding: 60px 15px 30px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+  
+  .section-container {
+    padding: 0 5px;
+  }
+}

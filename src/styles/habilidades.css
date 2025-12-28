@@ -1,196 +1,263 @@
-.container_title {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 60px;
-	min-height: auto;
-}
-  
-.color_text_habi {
-    color: white;
-    font-weight: bold;
-    background: linear-gradient(90deg, #fe3051, #ff6074);
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin: 0;
-}
+/* ========== HABILIDADES SECTION ========== */
 
-.style_img_habi {
-	width: 180px;
-	height: 110px;
-	background: #3a7bd5;
-	background: -webkit-linear-gradient(to right, #3a7bd5, #5a94d8);
-	background: linear-gradient(to right, #3a7bd5, #5a94d8);
-	background-size: cover;
-	border-radius: 10px;
-	object-fit: contain;
-	padding: 10px;
-	transition: transform 0.3s ease;
-}
-
-.style_img_habi:hover {
-	transform: scale(1.1);
-}
-
-.icon_container_habi {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	margin-top: 3vh;
-	margin-left: 11vw;
-	margin-right: 5vw;
-	gap: 20px;
-	margin-bottom: 30px;
-}
-
-.style_title {
-	color: var(--text-color);
-	font-size: 3rem;
-	text-align: center;
-	margin-bottom: 50px;
-}
-
-/* Contenedor principal de habilidades */
 #Habilidades {
-	padding-bottom: 60px;
-	margin-bottom: 30px;
-}
-
-/* Estilos para la sección de habilidades */
-.habilidades-section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
 }
 
 .habilidades-content {
   width: 100%;
-  max-width: 1000px;
-  padding: 80px 0;
+  max-width: 1200px;
 }
 
 .section-title {
   color: var(--text-color);
   font-size: 2.8rem;
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 15px;
+  position: relative;
+  letter-spacing: -0.5px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+.contacto-subtitle {
+  color: var(--text-color);
+  opacity: 0.7;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  font-weight: 400;
 }
 
 .skills-container {
   width: 100%;
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Pestañas de categorías */
+/* ========== CATEGORY TABS ========== */
 .category-tabs {
   display: flex;
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
-  margin-bottom: 30px;
-  width: 100%;
-  max-width: 700px;
+  margin-bottom: 45px;
 }
 
 .category-tab {
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.1);
   color: var(--text-color);
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.category-tab:hover::before {
+  left: 100%;
+}
+
+.category-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.category-tab:hover .category-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .category-tab.active {
-  background: linear-gradient(90deg, #fe3051, #ff6074);
   border-color: transparent;
   color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .category-tab:hover:not(.active) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-/* Showcase de tecnologías */
+/* ========== TECH GRID ========== */
 .skills-showcase {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.category-title {
-  color: #fe3051;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
+  padding: 20px 0;
 }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
   width: 100%;
-  max-width: 800px;
 }
 
-.tech-item {
+.tech-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tech-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tech-card:hover .tech-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.tech-icon {
+  font-size: 3.5rem;
+  transition: all 0.4s ease;
+}
+
+.tech-card:hover .tech-icon {
+  filter: drop-shadow(0 5px 15px currentColor);
+}
+
+.tech-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-}
-
-.tech-image-container {
-  background: #3a7bd5;
-
   width: 100%;
-  height: 120px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  transition: transform 0.3s ease;
-}
-
-.tech-image-container:hover {
-  transform: scale(1.05);
-}
-
-.tech-image {
-  max-width: 100%;
-  max-height: 90px;
-  object-fit: contain;
 }
 
 .tech-name {
   color: var(--text-color);
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.1rem;
   text-align: center;
-  font-size: 1rem;
+  margin: 0;
+  letter-spacing: 0.3px;
 }
 
-/* Media queries para responsive */
+.tech-level-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-level-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.tech-level-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.tech-level-text {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
 @media (max-width: 992px) {
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -198,73 +265,241 @@
   }
   
   .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2.3rem;
   }
   
-  .category-tabs {
-    gap: 12px;
+  .skills-container {
+    padding: 35px 25px;
   }
   
   .category-tab {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+  
+  .tech-card {
+    padding: 25px;
+  }
+  
+  .tech-icon-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .tech-icon {
+    font-size: 3rem;
   }
 }
 
 @media (max-width: 768px) {
-  .habilidades-content {
-    padding: 60px 0;
-  }
-  
   .section-title {
     font-size: 2rem;
-    margin-bottom: 30px;
+  }
+  
+  .contacto-subtitle {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .skills-container {
+    padding: 18px 20px;
+    border-radius: 20px;
   }
   
   .category-tabs {
-    gap: 8px;
+    gap: 6px;
+    margin-bottom: 15px;
   }
   
   .category-tab {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  
+  .category-icon {
+    font-size: 1.1rem;
   }
   
   .tech-grid {
-    gap: 15px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 18px;
+    padding: 20px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   }
   
-  .tech-image-container {
-    height: 100px;
+  .tech-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .tech-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  
+  .tech-card {
+    flex: 0 0 240px;
+    scroll-snap-align: center;
+    padding: 18px;
+  }
+  
+  .tech-icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .tech-icon {
+    font-size: 2.2rem;
   }
   
   .tech-name {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 576px) {
+  .section-title {
+    font-size: 1.9rem;
+  }
+  
+  .contacto-subtitle {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+  
+  .skills-container {
+    padding: 16px 18px;
+  }
+  
   .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 15px;
+    padding: 15px 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  
+  .tech-grid::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  .tech-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
   }
   
   .category-tabs {
-    flex-wrap: nowrap;
+    gap: 6px;
     overflow-x: auto;
     justify-content: flex-start;
     padding: 10px 0;
-    scrollbar-width: none; /* Firefox */
+    margin-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
   }
   
-  .category-tabs::-webkit-scrollbar { 
-    display: none; /* Chrome, Safari, Edge */
+  .category-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .category-tabs::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
   }
   
   .category-tab {
-    padding: 8px 12px;
+    padding: 9px 16px;
     font-size: 0.8rem;
     white-space: nowrap;
+    flex-shrink: 0;
+    gap: 8px;
+    min-height: 40px;
   }
+  
+  .category-icon {
+    font-size: 1.15rem;
+  }
+  
+  .tech-card {
+    flex: 0 0 220px;
+    scroll-snap-align: center;
+    padding: 20px 18px;
+  }
+  
+  .tech-icon-wrapper {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .tech-icon {
+    font-size: 2.5rem;
+  }
+  
+  .tech-name {
+    font-size: 0.98rem;
+  }
+  
+  .tech-level-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .skills-container {
+    padding: 15px 15px;
+  }
+  
+  .category-tabs {
+    gap: 5px;
+    padding: 8px 0;
+    margin-bottom: 10px;
+  }
+  
+  .category-tab {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    min-height: 38px;
+    gap: 6px;
+  }
+  
+  .category-icon {
+    font-size: 1.05rem;
+  }
+  
+  .tech-grid {
+    gap: 12px;
+    padding: 12px 5px;
+  }
+  
+  .tech-card {
+    flex: 0 0 200px;
+    padding: 18px 15px;
+  }
+  
+  .tech-icon-wrapper {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .tech-icon {
+    font-size: 2.2rem;
+  }
+  
+  .tech-name {
+    font-size: 0.92rem;
+  }
+  
+  .tech-level-text {
+    font-size: 0.85rem;  }
 }
