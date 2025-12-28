@@ -52,17 +52,13 @@ function Navigation() {
     setMenuOpen(false);
     
     if (targetId && targetId.startsWith('#')) {
-      // Scroll después de cerrar el menú
+      // Scroll después de cerrar el menú - dejamos que CSS maneje el offset con scroll-margin-top
       setTimeout(() => {
         const element = document.querySelector(targetId);
         if (element) {
-          const headerOffset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
           });
         }
       }, 100);

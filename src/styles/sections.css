@@ -6,9 +6,9 @@
 section {
   position: relative;
   width: 100%;
-  padding: 40px 20px;
+  padding: 100px 20px 40px;
   min-height: auto;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 0;
   overflow-x: hidden;
 }
 
@@ -57,16 +57,8 @@ section {
 
 @media (max-width: 992px) {
   section {
-    padding: 80px 20px;
-    scroll-margin-top: 70px;
-  }
-  
-  section:not(#Inicio) {
-    padding-top: 75px;
-  }
-  
-  #Acerca {
-    padding-top: 75px;
+    padding: 90px 20px 40px;
+    scroll-margin-top: 0;
   }
   
   .section-title {
@@ -77,16 +69,8 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding: 60px 15px;
-    scroll-margin-top: 65px;
-  }
-  
-  section:not(#Inicio) {
-    padding-top: 65px;
-  }
-  
-  #Acerca {
-    padding: 65px 15px 40px;
+    padding: 85px 15px 40px;
+    scroll-margin-top: 0;
   }
   
   .section-title {
@@ -97,16 +81,8 @@ section {
 
 @media (max-width: 576px) {
   section {
-    padding: 50px 15px;
-    scroll-margin-top: 60px;
-  }
-  
-  section:not(#Inicio) {
-    padding-top: 60px;
-  }
-  
-  #Acerca {
-    padding: 60px 15px 30px;
+    padding: 80px 15px 30px;
+    scroll-margin-top: 0;
   }
   
   .section-title {
