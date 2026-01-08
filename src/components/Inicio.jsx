@@ -6,7 +6,8 @@ import foto from "../assets/fotoR.png";
 
 function Inicio() {
   const descargarCV = () => {
-    const urlCV = "https://drive.google.com/file/d/1GHLj_t9axgAY5fMP9EvupFW6uExRjKmy/view?usp=sharing";
+    const urlCV = "https://drive.google.com/file/d/1I49Pw2bfLX5pIEGQSCrmzjqbl0JtcACw/view?usp=sharing";
+    
     window.open(urlCV, "_blank");
   };
   
