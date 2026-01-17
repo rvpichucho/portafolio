@@ -1,3 +1,97 @@
+/* Forzar que el modal se adapte estrictamente al contenido y no deje espacio en blanco inferior */
+.modal-dialog {
+  display: block !important;
+  height: auto !important;
+  min-height: unset !important;
+  align-items: flex-start !important;
+}
+.modal-content {
+  height: auto !important;
+  min-height: unset !important;
+  display: block !important;
+}
+.modal-body {
+  min-height: unset !important;
+  height: auto !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0.5rem !important;
+}
+.modal-footer {
+  margin-top: 0 !important;
+  padding-top: 0.5rem !important;
+}
+/* Ajuste para que el modal se adapte estrictamente al contenido y no deje espacio en blanco inferior */
+.modal-content {
+  min-height: unset !important;
+  height: auto !important;
+}
+.modal-body {
+  padding-bottom: 0.5rem !important;
+}
+.modal-footer {
+  margin-top: 0;
+  padding-top: 0.5rem;
+}
+.proyecto-modal-img {
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  max-height: 40vh;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 0 auto;
+}
+
+.modal-image-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.modal-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+}
+/* Modal: eliminar padding superior extra y ajustar header */
+.modal-content {
+  padding-top: 0 !important;
+}
+.modal-header {
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
+}
+.modal-title {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .modal-image-col, .modal-info-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .proyecto-modal-img {
+    max-width: 100%;
+    max-height: 32vh;
+  }
+  .modal-body .row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .proyecto-modal-img {
+    max-width: 100%;
+    max-height: 28vh;
+  }
+  .modal-info-col {
+    padding-top: 10px;
+  }
+}
 /* ========== PROYECTOS SECTION ========== */
 /* Estilos base manejados por sections.css */
 
@@ -13,7 +107,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
+  min-height: 560px; /* aumentado para más espacio vertical */
 }
 
 .proyecto-imagen-col {
@@ -35,7 +129,7 @@
   padding: 15px;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.2);
-  height: 350px;
+  height: 520px; /* más alto para imágenes grandes */
   overflow: hidden;
 }
 
@@ -58,6 +152,67 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Grid de tarjetas */
+.proyecto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.proyecto-card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+.proyecto-card .proyecto-card-img {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Asegurar que los títulos en las tarjetas sean legibles sobre fondo oscuro */
+.proyecto-card .card-title {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.card-excerpt {
+  font-size: 0.98rem;
+  color: var(--text-color);
+  max-height: 3.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Modal image */
+.proyecto-modal-img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .proyecto-descripcion {
   color: var(--text-color);
   font-weight: 500;
@@ -65,6 +220,52 @@
   text-align: left;
   line-height: 1.7;
   margin: 0;
+}
+
+/* Forzar color oscuro en descripciones dentro de modales (fondo claro) */
+.modal .proyecto-descripcion {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Tecnologías usadas dentro de la tarjeta de proyecto */
+.proyecto-techs {
+  margin-top: 18px;
+}
+
+.techs-title {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.tech-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.tech-svg {
+  font-size: 1.8rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Iconos más pequeños para las tarjetas */
+.card-tech-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-tech-icon .tech-svg {
+  font-size: 1.7rem;
+}
+.card-tech-icon .tech-svg[title="scikit-learn"],
+.card-tech-icon .tech-svg[title="MySQL"] {
+  font-size: 2.1rem;
 }
 
 .proyecto-github-btn {
@@ -143,7 +344,7 @@
   }
   
   .proyecto-image-container {
-    height: 300px;
+    height: 420px;
   }
   
   .proyecto-descripcion {
@@ -177,7 +378,7 @@
   }
   
   .proyecto-image-container {
-    height: 250px;
+    height: 360px;
     margin-bottom: 20px;
   }
   
@@ -208,7 +409,7 @@
   }
   
   .proyecto-image-container {
-    height: 220px;
+    height: 300px;
     margin-bottom: 25px;
   }
   

@@ -7,9 +7,9 @@ import {
   SiAngular, SiReact, SiHtml5, SiCss3,
   SiFlutter, SiDart,
   SiScikitlearn, SiPytorch, SiNumpy, SiOpencv,
-  SiAxios
+  SiAxios, SiMysql, SiPostgresql, SiFirebase
 } from "react-icons/si";
-import { FaMobileAlt, FaServer, FaCode, FaBrain } from "react-icons/fa";
+import { FaMobileAlt, FaServer, FaCode, FaBrain, FaDatabase } from "react-icons/fa";
 
 function Habilidades() {
   const [activeCategory, setActiveCategory] = useState('backend');
@@ -49,6 +49,17 @@ function Habilidades() {
         { name: 'Flutter', icon: SiFlutter, color: '#02569B', level: 80 },
         { name: 'Dart', icon: SiDart, color: '#0175C2', level: 75 },
         { name: 'Axios', icon: SiAxios, color: '#5A29E4', level: 88 }
+      ]
+    },
+    {
+      id: 'databases',
+      name: 'Bases de datos',
+      icon: FaDatabase,
+      color: '#f97316',
+      techs: [
+        { name: 'MySQL', icon: SiMysql, color: '#00758F', level: 90 },
+        { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791', level: 85 },
+        { name: 'Firebase', icon: SiFirebase, color: '#FFCA28', level: 80 }
       ]
     },
     {
@@ -113,16 +124,7 @@ function Habilidades() {
                     </div>
                     <div className="tech-info">
                       <h4 className="tech-name">{tech.name}</h4>
-                      <div className="tech-level-bar">
-                        <div 
-                          className="tech-level-fill" 
-                          style={{ 
-                            width: `${tech.level}%`,
-                            background: tech.color
-                          }}
-                        ></div>
-                      </div>
-                      <span className="tech-level-text">{tech.level}%</span>
+                      {/* Barra de porcentaje eliminada según solicitud */}
                     </div>
                   </div>
                 );
