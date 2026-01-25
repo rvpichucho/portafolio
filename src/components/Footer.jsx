@@ -20,7 +20,7 @@ function Footer() {
           </a>
         </div>
         <p className="footer-text">
-          Hecho con <FaHeart className="heart-icon" /> por Ing. Romel Pichucho © 2025
+          Hecho con <FaHeart className="heart-icon" /> por Romel Pichucho © 2026
         </p>
       </div>
     </footer>
