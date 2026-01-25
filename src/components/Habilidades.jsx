@@ -1,6 +1,5 @@
 import "../styles/habilidades.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 // Iconos de React Icons
 import { 
   SiLaravel, SiNodedotjs, SiFastapi, SiFlask,
@@ -11,10 +10,8 @@ import {
 } from "react-icons/si";
 import { FaMobileAlt, FaServer, FaCode, FaBrain, FaDatabase } from "react-icons/fa";
 
-function Habilidades() {
-  const [activeCategory, setActiveCategory] = useState('backend');
-
-  const categories = [
+// Datos estáticos movidos fuera del componente (rerender-hoist-jsx)
+const CATEGORIES_DATA = [
     {
       id: 'backend',
       name: 'Back-End',
@@ -76,8 +73,14 @@ function Habilidades() {
     }
   ];
 
+function Habilidades() {
+  const [activeCategory, setActiveCategory] = useState('backend');
+
   // Selecciona la categoría activa
-  const activeData = categories.find(cat => cat.id === activeCategory);
+  const activeData = useMemo(
+    () => CATEGORIES_DATA.find(cat => cat.id === activeCategory),
+    [activeCategory]
+  );
 
   return (
     <section id="Habilidades">
@@ -89,7 +92,7 @@ function Habilidades() {
         
         <div className="skills-container">
           <div className="category-tabs">
-            {categories.map(category => {
+            {CATEGORIES_DATA.map(category => {
               const IconComponent = category.icon;
               return (
                 <button 
@@ -120,6 +123,7 @@ function Habilidades() {
                       <TechIcon 
                         className="tech-icon" 
                         style={{ color: tech.color }}
+                        aria-hidden="true"
                       />
                     </div>
                     <div className="tech-info">

@@ -1,16 +1,16 @@
 import "../styles/inicio.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { FaCode, FaMobile, FaBrain, FaRocket } from 'react-icons/fa';
 import anime from '../assets/anime.png';
 
-function Acerca() {
-  const servicios = [
-    { icon: <FaCode />, titulo: "Desarrollo Web", descripcion: "Aplicaciones web modernas y responsivas" },
-    { icon: <FaMobile />, titulo: "Apps Móviles", descripcion: "Aplicaciones nativas y multiplataforma" },
-    { icon: <FaBrain />, titulo: "Inteligencia Artificial", descripcion: "Soluciones con Machine Learning" },
-    { icon: <FaRocket />, titulo: "Innovación", descripcion: "Soluciones tecnológicas creativas" }
+// Datos estáticos movidos fuera del componente (rerender-hoist-jsx)
+const SERVICIOS_DATA = [
+    { icon: <FaCode aria-hidden="true" />, titulo: "Desarrollo Web", descripcion: "Aplicaciones web modernas y responsivas" },
+    { icon: <FaMobile aria-hidden="true" />, titulo: "Apps Móviles", descripcion: "Aplicaciones nativas y multiplataforma" },
+    { icon: <FaBrain aria-hidden="true" />, titulo: "Inteligencia Artificial", descripcion: "Soluciones con Machine Learning" },
+    { icon: <FaRocket aria-hidden="true" />, titulo: "Innovación", descripcion: "Soluciones tecnológicas creativas" }
   ];
 
+function Acerca() {
   return (
     <section id="Acerca">
       <div className="section-container">
@@ -36,7 +36,7 @@ function Acerca() {
             </p>
             
             <div className="servicios-grid">
-              {servicios.map((servicio, index) => (
+              {SERVICIOS_DATA.map((servicio, index) => (
                 <div key={index} className="servicio-item">
                   <div className="servicio-icon">{servicio.icon}</div>
                   <div className="servicio-info">

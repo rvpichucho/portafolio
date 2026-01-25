@@ -59,13 +59,90 @@
 /* Modal: eliminar padding superior extra y ajustar header */
 .modal-content {
   padding-top: 0 !important;
+  /* overscroll-behavior para modales (Web Interface Guidelines) */
+  overscroll-behavior: contain;
 }
+
+/* Modal backdrop con backdrop-filter */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+}
+
 .modal-header {
   margin-bottom: 0;
   padding-bottom: 0.5rem;
 }
+
 .modal-title {
   margin-bottom: 0;
+}
+
+/* ========== TEMA OSCURO (Dark Mode) ========== */
+[data-theme="dark"] .modal-content {
+  background-color: #1a1d29;
+  color: #e4e6eb;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .modal-header {
+  background-color: #0f1117;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .modal-title {
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .modal-body {
+  background-color: #1a1d29;
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .modal-footer {
+  background-color: #0f1117;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .proyecto-descripcion {
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ========== TEMA CLARO (Light Mode) ========== */
+[data-theme="light"] .modal-content {
+  background-color: #ffffff;
+  color: #1c1e21;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .modal-title {
+  color: #1c1e21;
+}
+
+[data-theme="light"] .modal-body {
+  background-color: #ffffff;
+  color: #1c1e21;
+}
+
+[data-theme="light"] .modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .proyecto-descripcion {
+  color: #1c1e21;
+}
+
+[data-theme="light"] .techs-title {
+  color: #1c1e21;
 }
 
 @media (max-width: 900px) {
@@ -161,6 +238,26 @@
   margin-top: 18px;
 }
 
+/* Botón wrapper para cards clickables (accesibilidad) */
+.proyecto-card-button {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: block;
+}
+
+.proyecto-card-button:focus {
+  outline: none;
+}
+
+.proyecto-card-button:focus-visible .proyecto-card {
+  outline: 2px solid #fe3051;
+  outline-offset: 4px;
+}
+
 .proyecto-card {
   cursor: pointer;
   border-radius: 12px;
@@ -168,8 +265,10 @@
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
 }
 
+.proyecto-card-button:hover .proyecto-card,
 .proyecto-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
@@ -222,11 +321,14 @@
   margin: 0;
 }
 
-/* Forzar color oscuro en descripciones dentro de modales (fondo claro) */
-.modal .proyecto-descripcion {
-  color: #222;
-  font-size: 1rem;
-  line-height: 1.6;
+/* Botón cerrar del modal con mejor contraste */
+.modal .btn-close {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.modal .btn-close:hover {
+  opacity: 1;
 }
 
 /* Tecnologías usadas dentro de la tarjeta de proyecto */
@@ -250,6 +352,19 @@
 .tech-svg {
   font-size: 1.8rem;
   color: rgba(255,255,255,0.9);
+}
+
+/* Iconos de tecnologías - Tema Claro */
+[data-theme="light"] .tech-svg {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .card-tech-icon .tech-svg {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+[data-theme="light"] .tech-icons .tech-svg {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Iconos más pequeños para las tarjetas */

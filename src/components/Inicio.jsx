@@ -1,8 +1,7 @@
 import "../styles/inicio.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Card, Button, CardGroup } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { FaLinkedin, FaFacebook, FaInstagram, FaGithub, FaDownload } from 'react-icons/fa';
-import foto from "../assets/fotoR.png";
+import foto from "../assets/romel.png";
 
 function Inicio() {
   const descargarCV = () => {
@@ -26,7 +25,7 @@ function Inicio() {
             
             <div className="hero-actions">
               <Button className="btn-primary-custom" onClick={descargarCV}>
-                <FaDownload /> Descargar CV
+                <FaDownload /> Descargar&nbsp;CV
               </Button>
               <a href="#Contacto" className="btn-secondary-custom">
                 Contáctame

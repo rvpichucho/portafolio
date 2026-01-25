@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaPaperPlane } from 'react-icons/fa';
+import { useState, useCallback } from 'react';
+import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import '../styles/contacto.css';
 
 function Contacto() {
@@ -12,14 +12,14 @@ function Contacto() {
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
+  }, [formData]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     setEnviando(true);
     
@@ -31,7 +31,7 @@ function Contacto() {
       
       setTimeout(() => setEnviado(false), 3000);
     }, 1500);
-  };
+  }, []);
 
   return (
     <section id="Contacto">
@@ -49,17 +49,18 @@ function Contacto() {
               </div>
               <div className="info-text">
                 <h4>Email</h4>
-                <p>romelpichucho@gmail.com</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <div className="info-icon">
-                <FaPhone />
-              </div>
-              <div className="info-text">
-                <h4>Teléfono</h4>
-                <p>+593 99 123 4567</p>
+                <a 
+                  href="mailto:romelpichucho@gmail.com" 
+                  className="contact-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Concatenación intencional para protección anti-spam
+                    // eslint-disable-next-line no-useless-concat
+                    window.location.href = 'mailto:romelpichucho' + '@' + 'gmail.com';
+                  }}
+                >
+                  Enviar correo
+                </a>
               </div>
             </div>
             
@@ -83,6 +84,7 @@ function Contacto() {
                   placeholder="Tu nombre"
                   value={formData.nombre}
                   onChange={handleChange}
+                  autoComplete="name"
                   required
                 />
               </div>
@@ -93,6 +95,8 @@ function Contacto() {
                   placeholder="Tu email"
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="email"
+                  spellCheck={false}
                   required
                 />
               </div>
@@ -105,6 +109,7 @@ function Contacto() {
                 placeholder="Asunto"
                 value={formData.asunto}
                 onChange={handleChange}
+                autoComplete="off"
                 required
               />
             </div>
@@ -116,6 +121,7 @@ function Contacto() {
                 rows="5"
                 value={formData.mensaje}
                 onChange={handleChange}
+                autoComplete="off"
                 required
               ></textarea>
             </div>
@@ -126,7 +132,7 @@ function Contacto() {
               disabled={enviando}
             >
               {enviando ? (
-                'Enviando...'
+                'Enviando…'
               ) : enviado ? (
                 '¡Mensaje Enviado!'
               ) : (

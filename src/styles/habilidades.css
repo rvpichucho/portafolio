@@ -52,6 +52,13 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Contenedor en tema claro */
+[data-theme="light"] .skills-container {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
 /* ========== CATEGORY TABS ========== */
 .category-tabs {
   display: flex;
@@ -77,6 +84,16 @@
   outline: none;
   position: relative;
   overflow: hidden;
+}
+
+/* Category tabs en tema claro */
+[data-theme="light"] .category-tab {
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .category-tab.active {
+  border-color: currentColor;
 }
 
 .category-tab::before {
@@ -144,6 +161,18 @@
   overflow: hidden;
 }
 
+/* Tech cards en tema claro */
+[data-theme="light"] .tech-card {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .tech-card:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
 .tech-card::before {
   content: '';
   position: absolute;
@@ -189,8 +218,26 @@
   transition: all 0.4s ease;
 }
 
+/* Mejorar visibilidad de iconos oscuros en modo oscuro */
+[data-theme="dark"] .tech-icon {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Solución para Flask (negro) y NumPy (azul oscuro) en modo oscuro */
+[data-theme="dark"] .tech-icon[style*="color: rgb(0, 0, 0)"],
+[data-theme="dark"] .tech-icon[style*="color: rgb(1, 50, 67)"] {
+  filter: invert(1) hue-rotate(180deg) brightness(1.5) !important;
+  -webkit-filter: invert(1) hue-rotate(180deg) brightness(1.5) !important;
+}
+
 .tech-card:hover .tech-icon {
   filter: drop-shadow(0 5px 15px currentColor);
+}
+
+/* Hover para iconos oscuros en modo oscuro */
+[data-theme="dark"] .tech-card:hover .tech-icon[style*="color: rgb(0, 0, 0)"],
+[data-theme="dark"] .tech-card:hover .tech-icon[style*="color: rgb(1, 50, 67)"] {
+  filter: invert(1) hue-rotate(180deg) brightness(1.8) drop-shadow(0 0 20px white) !important;
 }
 
 .tech-info {

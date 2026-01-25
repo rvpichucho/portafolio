@@ -1,7 +1,5 @@
 import "../styles/proyectos.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Card, Modal, Button, Carousel } from "react-bootstrap";
-import { FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 import { SiPython, SiPytorch, SiPostgresql, SiScikitlearn, SiMysql, SiOpencv, SiNestjs, SiReact, SiVite, SiFlutter, SiFlask, SiFastapi, SiFirebase, SiLaravel } from 'react-icons/si';
 import arma from "../assets/armas.jpg";
@@ -26,8 +24,8 @@ import vial2 from '../assets/vial2.jpg';
 import vial3 from '../assets/vial3.jpg';
 import vial4 from '../assets/vial4.jpg';
 
-function Proyectos() {
-  const proyectos = [
+// Datos estáticos movidos fuera del componente (rerender-hoist-jsx)
+const PROYECTOS_DATA = [
     {
       imagen: detect,
       imagenes: [detect, panelreid],
@@ -96,6 +94,29 @@ function Proyectos() {
     }
   ];
 
+// Función helper movida fuera del componente (rerender-hoist-jsx)
+const renderTechIcon = (name) => {
+  switch(name) {
+    case 'python': return <SiPython title="Python" className="tech-svg" aria-hidden="true" />;
+    case 'pytorch': return <SiPytorch title="PyTorch" className="tech-svg" aria-hidden="true" />;
+    case 'postgresql': return <SiPostgresql title="PostgreSQL" className="tech-svg" aria-hidden="true" />;
+    case 'scikitlearn': return <SiScikitlearn title="scikit-learn" className="tech-svg" aria-hidden="true" />;
+    case 'mysql': return <SiMysql title="MySQL" className="tech-svg" aria-hidden="true" />;
+    case 'opencv': return <SiOpencv title="OpenCV" className="tech-svg" aria-hidden="true" />;
+    case 'nestjs': return <SiNestjs title="NestJS" className="tech-svg" aria-hidden="true" />;
+    case 'react': return <SiReact title="React" className="tech-svg" aria-hidden="true" />;
+    case 'vite': return <SiVite title="Vite" className="tech-svg" aria-hidden="true" />;
+    case 'flutter': return <SiFlutter title="Flutter" className="tech-svg" aria-hidden="true" />;
+    case 'flask': return <SiFlask title="Flask" className="tech-svg" aria-hidden="true" />;
+    case 'fastapi': return <SiFastapi title="FastAPI" className="tech-svg" aria-hidden="true" />;
+    case 'firebase': return <SiFirebase title="Firebase" className="tech-svg" aria-hidden="true" />;
+    case 'laravel': return <SiLaravel title="Laravel" className="tech-svg" aria-hidden="true" />;
+    case 'reactnative': return <SiReact title="React Native" className="tech-svg" aria-hidden="true" />;
+    default: return null;
+  }
+};
+
+function Proyectos() {
   const [selected, setSelected] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -109,56 +130,51 @@ function Proyectos() {
     setSelected(null);
   };
 
-  const renderTechIcon = (name) => {
-    switch(name) {
-      case 'python': return <SiPython title="Python" className="tech-svg" />;
-      case 'pytorch': return <SiPytorch title="PyTorch" className="tech-svg" />;
-      case 'postgresql': return <SiPostgresql title="PostgreSQL" className="tech-svg" />;
-      case 'scikitlearn': return <SiScikitlearn title="scikit-learn" className="tech-svg" />;
-      case 'mysql': return <SiMysql title="MySQL" className="tech-svg" />;
-      case 'opencv': return <SiOpencv title="OpenCV" className="tech-svg" />;
-      case 'nestjs': return <SiNestjs title="NestJS" className="tech-svg" />;
-      case 'react': return <SiReact title="React" className="tech-svg" />;
-      case 'vite': return <SiVite title="Vite" className="tech-svg" />;
-      case 'flutter': return <SiFlutter title="Flutter" className="tech-svg" />;
-      case 'flask': return <SiFlask title="Flask" className="tech-svg" />;
-      case 'fastapi': return <SiFastapi title="FastAPI" className="tech-svg" />;
-      case 'firebase': return <SiFirebase title="Firebase" className="tech-svg" />;
-      case 'laravel': return <SiLaravel title="Laravel" className="tech-svg" />;
-      case 'reactnative': return <SiReact title="React Native" className="tech-svg" />;
-      default: return null;
-    }
-  };
-
   return (
     <section id="Proyectos">
       <div className="section-container">
         <h2 className="section-title">Proyectos</h2>
 
         <div className="proyecto-grid">
-          {proyectos.map((proyecto, idx) => (
-            <Card key={idx} className="proyecto-card" onClick={() => openModal(proyecto)}>
-              <div className="proyecto-card-img">
-                <img src={proyecto.imagen} alt={proyecto.titulo} className="image_style_proyecto" />
-              </div>
-              <Card.Body>
-                <Card.Title>{proyecto.titulo}</Card.Title>
-                {/* Mostrar solo iconos de tecnologías en la tarjeta (afuera) */}
-                {proyecto.tecnologias && (
-                  <div className="card-tech-icons">
-                    {proyecto.tecnologias.map((t, i) => (
-                      <span key={i} className="card-tech-icon">{renderTechIcon(t)}</span>
-                    ))}
-                  </div>
-                )}
-              </Card.Body>
-            </Card>
+          {PROYECTOS_DATA.map((proyecto, idx) => (
+            <button
+              key={idx}
+              className="proyecto-card-button"
+              onClick={() => openModal(proyecto)}
+              aria-label={`Ver detalles de ${proyecto.titulo}`}
+            >
+              <Card className="proyecto-card">
+                <div className="proyecto-card-img">
+                  <img src={proyecto.imagen} alt={proyecto.titulo} className="image_style_proyecto" />
+                </div>
+                <Card.Body>
+                  <Card.Title>{proyecto.titulo}</Card.Title>
+                  {/* Mostrar solo iconos de tecnologías en la tarjeta (afuera) */}
+                  {proyecto.tecnologias && (
+                    <div className="card-tech-icons">
+                      {proyecto.tecnologias.map((t, i) => (
+                        <span key={i} className="card-tech-icon">{renderTechIcon(t)}</span>
+                      ))}
+                    </div>
+                  )}
+                </Card.Body>
+              </Card>
+            </button>
           ))}
         </div>
 
-        <Modal show={show} onHide={closeModal} size="lg" centered>
+        <Modal 
+          show={show} 
+          onHide={closeModal} 
+          size="lg" 
+          centered
+          backdrop="static"
+          keyboard={true}
+          aria-labelledby="proyecto-modal-title"
+          className="proyecto-modal"
+        >
           <Modal.Header closeButton>
-            <Modal.Title>{selected?.titulo}</Modal.Title>
+            <Modal.Title id="proyecto-modal-title">{selected?.titulo}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>

@@ -3,10 +3,15 @@ import './App.css';
 import Portafolio from './pages/Portafolio';
 
 function App() {
-  // Verificar el tema al cargar la aplicación
+  // Verificar el tema al cargar la aplicación (client-localstorage-schema)
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.body.setAttribute('data-theme', savedTheme);
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.body.setAttribute('data-theme', savedTheme);
+    } catch (error) {
+      // Fallback si localStorage no está disponible
+      document.body.setAttribute('data-theme', 'dark');
+    }
   }, []);
 
   return (

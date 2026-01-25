@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/navigtion.css';
 
@@ -9,6 +9,7 @@ function Navigation() {
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -33,15 +34,15 @@ function Navigation() {
     };
   }, [menuOpen]);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(prev => !prev);
+  }, []);
 
-  const handleMenuClick = (e) => {
+  const handleMenuClick = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     
@@ -63,13 +64,13 @@ function Navigation() {
         }
       }, 100);
     }
-  };
+  }, []);
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = useCallback((e) => {
     if (e.target === e.currentTarget) {
       setMenuOpen(false);
     }
-  };
+  }, []);
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
