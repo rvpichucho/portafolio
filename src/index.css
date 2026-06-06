@@ -1,17 +1,112 @@
+@import "tailwindcss";
+
+/* ─── Design System: Precision Engineering Portfolio (Stitch) ─── */
+@theme {
+  --font-heading: 'Geist', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  --color-primary: #6366f1;
+  --color-primary-light: #c0c1ff;
+  --color-primary-dark: #494bd6;
+  --color-secondary: #a855f7;
+  --color-secondary-light: #ddb7ff;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-light: #2fd9f4;
+
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+
+  --color-on-surface: #dae2fd;
+  --color-surface-variant: #c7c4d7;
+  --color-on-primary: #1000a9;
+  --color-on-secondary: #490080;
+  --color-on-tertiary: #00363e;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+
+  --radius-card: 8px;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 1s infinite;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-border-glow: borderGlow 4s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes borderGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ─── Light theme ─── */
+[data-theme="light"] {
+  --color-surface: #f5f7fb;
+  --color-surface-dim: #e8ecf4;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef1f8;
+  --color-surface-container: #e4e8f2;
+  --color-surface-container-high: #d9dde8;
+  --color-surface-container-highest: #cdd2de;
+
+  --color-on-surface: #1a1f33;
+  --color-surface-variant: #444a5e;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-outline: #888d9e;
+  --color-outline-variant: #c4c8d4;
+
+  --color-primary: #4f46e5;
+  --color-primary-light: #6366f1;
+  --color-primary-dark: #4338ca;
+  --color-secondary: #7c3aed;
+  --color-secondary-light: #9333ea;
+  --color-tertiary: #0891b2;
+  --color-tertiary-light: #06b6d4;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 8px;
 }
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container-low);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+  
