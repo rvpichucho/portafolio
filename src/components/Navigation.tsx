@@ -239,7 +239,7 @@ export default function Navigation() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-col gap-1 px-4 mt-2">
+            <nav className="flex flex-col gap-1 px-4 mt-2">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
@@ -254,7 +254,7 @@ export default function Navigation() {
                   {t(item.label.es, item.label.en)}
                 </a>
               ))}
-            </div>
+            </nav>
           </div>
         </div>
       )}
