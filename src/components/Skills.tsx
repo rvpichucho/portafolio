@@ -55,10 +55,10 @@ export default function Skills() {
     <section id="skills" className="pt-14 md:pt-16 pb-20 md:pb-28 scroll-mt-24">
       <div className="section-container">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-[32px] md:text-[40px] font-semibold tracking-[-0.02em] text-on-surface">
+          <h2 className="reveal font-heading type-h2 font-semibold text-on-surface">
             {t("skills.title")}
           </h2>
-          <p className="mt-4 text-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 type-body-lg text-on-surface-variant max-w-prose mx-auto">
             {t("skills.desc")}
           </p>
         </div>
@@ -73,9 +73,10 @@ export default function Skills() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-1.5 ${
                   isActive
-                    ? "bg-primary text-on-primary shadow-md shadow-primary/20 scale-105"
+                    ? "text-white shadow-md scale-105"
                     : "bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:border-outline hover:text-on-surface"
                 }`}
+                style={isActive ? { backgroundColor: cat.color } : undefined}
               >
                 <span>{catIconMap[cat.icon] || "🛠️"}</span>
                 {cat.name}

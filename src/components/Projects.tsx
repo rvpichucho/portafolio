@@ -27,6 +27,37 @@ const iconMap: Record<string, React.ElementType> = {
   reactnative: SiReact,
 };
 
+/* ─── Tech color families ─── */
+const techColorMap: Record<string, { bg: string; text: string; border: string }> = {
+  // Web / Backend → primary (indigo)
+  python: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  django: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  flask: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  laravel: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  nestjs: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  react: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  vite: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  typescript: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+  // Mobile → secondary (purple)
+  reactnative: { bg: "bg-secondary/10", text: "text-secondary-light", border: "border-secondary/20" },
+  flutter: { bg: "bg-secondary/10", text: "text-secondary-light", border: "border-secondary/20" },
+  dart: { bg: "bg-secondary/10", text: "text-secondary-light", border: "border-secondary/20" },
+  // AI/ML → tertiary (cyan)
+  pytorch: { bg: "bg-tertiary/10", text: "text-tertiary-light", border: "border-tertiary/20" },
+  scikitlearn: { bg: "bg-tertiary/10", text: "text-tertiary-light", border: "border-tertiary/20" },
+  opencv: { bg: "bg-tertiary/10", text: "text-tertiary-light", border: "border-tertiary/20" },
+  numpy: { bg: "bg-tertiary/10", text: "text-tertiary-light", border: "border-tertiary/20" },
+  // Databases → warm (orange via outline-variant tint)
+  mysql: { bg: "bg-surface-container-low", text: "text-on-surface-variant", border: "border-outline-variant/40" },
+  postgresql: { bg: "bg-surface-container-low", text: "text-on-surface-variant", border: "border-outline-variant/40" },
+  mongodb: { bg: "bg-surface-container-low", text: "text-on-surface-variant", border: "border-outline-variant/40" },
+  firebase: { bg: "bg-surface-container-low", text: "text-on-surface-variant", border: "border-outline-variant/40" },
+  // API frameworks → blend
+  fastapi: { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" },
+};
+
+const defaultTechColor = { bg: "bg-primary/10", text: "text-primary-light", border: "border-primary/20" };
+
 /* ─── Lightweight Image Gallery ─── */
 function Gallery({ images, title }: { images: string[]; title: string }) {
   const { t } = useLang();
@@ -63,7 +94,7 @@ function Gallery({ images, title }: { images: string[]; title: string }) {
           </svg>
         </button>
         {/* Counter */}
-        <span className="absolute bottom-2 right-2 px-2 py-0.5 text-xs bg-black/50 text-white rounded-full">
+        <span className="absolute bottom-2 right-2 px-2 py-0.5 type-caption bg-black/50 text-white rounded-full">
           {idx + 1} / {images.length}
         </span>
       </div>
@@ -105,7 +136,7 @@ export default function Projects() {
     <section id="projects" className="pt-14 md:pt-16 pb-20 md:pb-28 bg-surface-container-low scroll-mt-24">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-[32px] md:text-[40px] font-semibold tracking-[-0.02em] text-on-surface">
+          <h2 className="reveal font-heading type-h2 font-semibold text-on-surface">
             {t("proj.title")}
           </h2>
         </div>
@@ -117,7 +148,7 @@ export default function Projects() {
               <button
                 key={idx}
                 onClick={() => openModal(idx)}
-                className="group text-left rounded-[8px] bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary/30 hover:bg-surface-container transition-all duration-300"
+                className="group text-left rounded-[8px] bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary/30 hover:bg-surface-container hover:translate-y-[-3px] hover:shadow-lg hover:shadow-primary/5 active:translate-y-0 active:scale-[0.98] transition-all duration-300"
               >
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
@@ -127,7 +158,7 @@ export default function Projects() {
                   />
                 </div>
                 <div className="p-3 md:p-4">
-                  <h3 className="font-heading font-semibold text-sm text-on-surface group-hover:text-primary-light transition-colors">
+                  <h3 className="font-heading font-semibold type-body-sm text-on-surface group-hover:text-primary-light transition-colors">
                     {p.titulo[lang]}
                   </h3>
                   {techs.length > 0 && (
@@ -153,10 +184,12 @@ export default function Projects() {
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
             onClick={closeModal}
+            style={{ animation: "fadeUp 0.2s cubic-bezier(0.16,1,0.3,1) both" }}
           >
             <div
               className="bg-surface-container-high rounded-[8px] max-w-5xl w-full max-h-[95vh] overflow-y-auto border border-outline-variant/30"
               onClick={(e) => e.stopPropagation()}
+              style={{ animation: "fadeUp 0.3s cubic-bezier(0.16,1,0.3,1) 0.05s both" }}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-3 border-b border-outline-variant/20">
@@ -193,23 +226,24 @@ export default function Projects() {
 
                 {/* Info */}
                 <div className="flex flex-col gap-4">
-                  <p className="text-on-surface-variant leading-relaxed text-sm">
+                  <p className="text-on-surface-variant type-body-sm">
                     {project.descripcion[lang]}
                   </p>
 
                   {/* Techs */}
                   {project.tecnologias && project.tecnologias.length > 0 && (
                     <div>
-                      <h4 className="font-heading font-semibold text-sm text-on-surface mb-2">
+                      <h4 className="font-heading font-semibold type-body-sm text-on-surface mb-2">
                         {t("proj.techs")}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.tecnologias.map((t) => {
                           const Icon = iconMap[t];
+                          const c = techColorMap[t] || defaultTechColor;
                           return (
                             <span
                               key={t}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-full bg-primary/10 text-primary-light border border-primary/20"
+                              className={`tag-hover inline-flex items-center gap-1.5 px-2.5 py-1 type-caption rounded-full ${c.bg} ${c.text} ${c.border}`}
                             >
                               {Icon ? <Icon className="w-3.5 h-3.5" /> : <span>🔧</span>}
                               {t.charAt(0).toUpperCase() + t.slice(1)}

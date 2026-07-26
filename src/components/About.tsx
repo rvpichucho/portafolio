@@ -6,22 +6,24 @@ export default function About() {
   return (
     <section id="about" className="pt-14 md:pt-16 pb-20 md:pb-28 scroll-mt-24 relative">
       {/* Subtle separator */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-2xl h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-2xl h-px separator-shimmer" />
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-14">
+        <div className="flex flex-col md:flex-row items-start justify-center gap-12 md:gap-16">
           {/* Text */}
-          <div className="flex-1 text-center md:text-left md:pl-8">
-            <h2 className="font-heading text-[32px] md:text-[40px] font-semibold tracking-[-0.02em] text-on-surface mb-6">
+          <div className="flex-1 text-center md:text-left order-2 md:order-1">
+            <h2 className="reveal font-heading type-h2 font-semibold text-on-surface mb-8">
               {t("about.title")}
             </h2>
-            <p className="text-lg text-on-surface-variant leading-[1.8] max-w-2xl mx-auto md:mx-0">
-              {t("about.desc")}
-            </p>
+            <div className="space-y-5">
+              <p className="type-body md:type-body-lg text-on-surface-variant max-w-prose">
+                {t("about.desc")}
+              </p>
+            </div>
           </div>
 
           {/* Image with animated border glow */}
-          <div className="flex-shrink-0 md:pr-8">
-            <div className="relative w-56 h-56 md:w-72 md:h-72">
+          <div className="flex-shrink-0 order-1 md:order-2">
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
               {/* Animated gradient border */}
               <div
                 className="absolute inset-0 rounded-[16px] animate-border-glow"

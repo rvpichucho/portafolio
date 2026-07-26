@@ -7,7 +7,7 @@ export const personalInfo = {
     "Apasionado por crear soluciones tecnológicas innovadoras con experiencia en desarrollo web, móvil e inteligencia artificial. Especializado en arquitecturas cloud de alto rendimiento y experiencias móviles inteligentes.",
   email: "romelpichucho@gmail.com",
   location: "Quito, Ecuador",
-  phone: "+1 (555) 900-1234",
+  phone: "+593 98 478 0077",
   cvUrl:
     "https://drive.google.com/file/d/1I49Pw2bfLX5pIEGQSCrmzjqbl0JtcACw/view?usp=sharing",
   social: {

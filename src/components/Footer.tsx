@@ -33,7 +33,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="text-sm text-on-surface-variant text-center">
+          <p className="text-[var(--fs-body-sm)] text-on-surface-variant text-center">
             © {new Date().getFullYear()} {personalInfo.name}. {t("footer.built")}{" "}
             <span className="text-primary-light">✦</span>.
           </p>

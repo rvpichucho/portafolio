@@ -4,7 +4,7 @@ type Lang = "es" | "en";
 
 const translations: Record<string, { es: string; en: string }> = {
   // Hero
-  "hero.badge": { es: "Full Stack Developer", en: "Full Stack Developer" },
+  "hero.badge": { es: "Desarrollador Full Stack", en: "Full Stack Developer" },
   "hero.desc": {
     es: "Ingeniero en Software con experiencia en desarrollo full stack, aplicaciones móviles e inteligencia artificial. Especializado en Python, React, TypeScript y arquitecturas cloud. Apasionado por desarrollar soluciones tecnológicas que resuelven problemas reales.",
     en: "Software Engineer experienced in full stack development, mobile applications, and artificial intelligence. Specialized in Python, React, TypeScript, and cloud architectures. Passionate about building technology solutions that solve real-world problems.",
@@ -50,6 +50,8 @@ const translations: Record<string, { es: string; en: string }> = {
   "sv.6.desc": { es: "Automatización de tareas vía CI/CD y scripts personalizados.", en: "Automating repetitive tasks via CI/CD pipelines and custom script solutions." },
   "sv.7.title": { es: "Consultoría Tecnológica", en: "Tech Consulting" },
   "sv.7.desc": { es: "Roadmap técnico estratégico para startups y empresas.", en: "Strategic technical roadmap planning for startups and enterprise clients." },
+  "sv.show_all": { es: "Ver todos los servicios", en: "View all services" },
+  "sv.show_less": { es: "Mostrar menos", en: "Show less" },
 
   // Skills
   "skills.badge": { es: "Technical Arsenal", en: "Technical Arsenal" },
@@ -79,6 +81,8 @@ const translations: Record<string, { es: string; en: string }> = {
   "exp.5.desc": { es: "Creación de APIs para sistema de ventas con Laravel. Modelamiento de base de datos MySQL. Almacenamiento de tickets con Firebase. Evaluación y pruebas de APIs en producción. Documentación técnica.", en: "API creation for sales system with Laravel. MySQL database modeling. Ticket storage with Firebase. Evaluation and testing of APIs in production. Technical documentation." },
   "exp.6.role": { es: "Técnico Informático", en: "IT Technician" },
   "exp.6.desc": { es: "Reparación de impresoras de tinta continua y matriciales. Reparación de laptops y PC de escritorio. Redes de datos estructurales. Instalación de cámaras de seguridad. Configuración de antenas de radio enlace marca Ubiquiti.", en: "Repair of continuous ink and dot matrix printers. Laptop and desktop PC repair. Structural data networks. Security camera installation. Configuration of Ubiquiti radio link antennas." },
+  "exp.show_all": { es: "Ver experiencia completa ({count} más)", en: "View full experience ({count} more)" },
+  "exp.show_less": { es: "Mostrar menos", en: "Show less" },
 
   // Projects
   "proj.badge": { es: "Selected Works", en: "Selected Works" },
@@ -97,25 +101,19 @@ const translations: Record<string, { es: string; en: string }> = {
     en: "Let's build something extraordinary",
   },
   "contact.desc": {
-    es: "Disponible para consultorías selectas y roles arquitectónicos senior. Contáctame vía formulario o canales directos.",
-    en: "Available for select consulting engagements and senior architectural roles. Reach out via form or direct channels.",
+    es: "Disponible para consultorías selectas y roles arquitectónicos senior. Contáctame por correo o WhatsApp.",
+    en: "Available for select consulting engagements and senior architectural roles. Reach out via email or WhatsApp.",
   },
-  "contact.name_placeholder": { es: "Nombre completo", en: "Full name" },
-  "contact.email_placeholder": {
-    es: "Correo electrónico",
-    en: "Email address",
-  },
-  "contact.message_placeholder": { es: "Tu mensaje", en: "Your message" },
-  "contact.send": { es: "Enviar mensaje", en: "Send message" },
-  "contact.sending": { es: "Enviando...", en: "Sending..." },
-  "contact.sent": { es: "¡Mensaje enviado!", en: "Message sent!" },
+
   "contact.email_label": { es: "Email", en: "Email" },
   "contact.location_label": { es: "Ubicación", en: "Location" },
   "contact.whatsapp_label": { es: "WhatsApp", en: "WhatsApp" },
+  "contact.send_email": { es: "Enviar correo electrónico", en: "Send email" },
+  "contact.send_whatsapp": { es: "Enviar mensaje por WhatsApp", en: "Send WhatsApp message" },
 
   // Footer
   "footer.built": {
-    es: "Built with precisión",
+    es: "Built with precision",
     en: "Built with precision",
   },
 };

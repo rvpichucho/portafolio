@@ -1,34 +1,9 @@
-import { useState, useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import { personalInfo } from "../data/portfolio";
 import { useLang } from "../data/useLang";
 
 export default function Contact() {
   const { t } = useLang();
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    mensaje: "",
-  });
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    },
-    []
-  );
-
-  const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-      setFormData({ nombre: "", email: "", mensaje: "" });
-      setTimeout(() => setSent(false), 3000);
-    }, 1500);
-  }, []);
 
   const emailChars = useMemo(() => {
     const shift = 3;
@@ -41,7 +16,7 @@ export default function Contact() {
     <section id="contact" className="pt-14 md:pt-16 pb-20 md:pb-28 scroll-mt-24 relative">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-[32px] md:text-[40px] font-semibold tracking-[-0.02em] text-on-surface">
+          <h2 className="reveal font-heading type-h2 font-semibold text-on-surface">
             {t("contact.title")}
           </h2>
         </div>
@@ -58,7 +33,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-heading font-semibold text-on-surface mb-1">{t("contact.email_label")}</h4>
-                <span className="text-on-surface-variant text-sm select-none">
+                <span className="text-on-surface-variant type-body-sm select-none">
                   {emailChars.map((ch, i) => (
                     <span key={i} style={{ unicodeBidi: "isolate" }}>
                       {String.fromCharCode(ch.charCodeAt(0) - 3)}
@@ -78,7 +53,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-heading font-semibold text-on-surface mb-1">{t("contact.location_label")}</h4>
-                <p className="text-on-surface-variant text-sm">{personalInfo.location}</p>
+                <p className="text-on-surface-variant type-body-sm">{personalInfo.location}</p>
               </div>
             </div>
 
@@ -91,7 +66,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-heading font-semibold text-on-surface mb-1">{t("contact.whatsapp_label")}</h4>
-                <p className="text-on-surface-variant text-sm">{personalInfo.phone}</p>
+                <p className="text-on-surface-variant type-body-sm">{personalInfo.phone}</p>
               </div>
             </div>
 
@@ -114,64 +89,34 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <input
-                type="text"
-                name="nombre"
-                placeholder={t("contact.name_placeholder")}
-                value={formData.nombre}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/30 rounded-[8px] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors text-sm"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder={t("contact.email_placeholder")}
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/30 rounded-[8px] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors text-sm"
-              />
-            </div>
-            <div>
-              <textarea
-                name="mensaje"
-                placeholder={t("contact.message_placeholder")}
-                rows={5}
-                value={formData.mensaje}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/30 rounded-[8px] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors text-sm resize-none"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={sending}
-              className={`w-full px-6 py-3 rounded-[8px] font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
-                sent
-                  ? "bg-green-600 text-white"
-                  : "bg-primary hover:bg-primary-dark text-on-primary hover:shadow-lg hover:shadow-primary/25"
-              }`}
+          {/* Direct Contact Actions */}
+          <div className="flex flex-col gap-5 justify-center">
+            <p className="text-on-surface-variant type-body-sm">
+              {t("contact.desc")}
+            </p>
+
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="group inline-flex items-center justify-center gap-3 px-6 py-4 bg-primary hover:bg-primary-dark text-on-primary font-medium rounded-[8px] transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] touch-target"
             >
-              {sending ? (
-                t("contact.sending")
-              ) : sent ? (
-                t("contact.sent")
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                  {t("contact.send")}
-                </>
-              )}
-            </button>
-          </form>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              {t("contact.send_email")}
+            </a>
+
+            <a
+              href={`https://wa.me/${personalInfo.phone.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 px-6 py-4 border border-outline hover:border-primary-light text-on-surface hover:text-primary-light font-medium rounded-[8px] transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 active:scale-[0.98] touch-target"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              {t("contact.send_whatsapp")}
+            </a>
+          </div>
         </div>
       </div>
     </section>

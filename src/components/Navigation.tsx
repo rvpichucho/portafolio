@@ -24,12 +24,17 @@ export default function Navigation() {
   // Apply theme to HTML element
   useEffect(() => {
     const root = document.documentElement;
+    // Add transition class for smooth theme change
+    root.classList.add("theme-changing");
     if (theme === "light") {
       root.setAttribute("data-theme", "light");
     } else {
       root.removeAttribute("data-theme");
     }
     localStorage.setItem("theme", theme);
+    // Remove transition class after animation completes
+    const timer = setTimeout(() => root.classList.remove("theme-changing"), 450);
+    return () => clearTimeout(timer);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
@@ -112,7 +117,7 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
+                className={`px-4 py-2 text-[var(--fs-body-sm)] font-medium transition-colors rounded-lg ${
                   activeSection === item.href.slice(1)
                     ? "text-primary-light bg-primary/8"
                     : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest"
@@ -128,18 +133,21 @@ export default function Navigation() {
             {/* Language Toggle */}
             <button
               onClick={toggleLang}
-              className="px-3 py-1.5 text-xs font-medium font-code rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-on-surface hover:border-outline transition-all"
+              className="px-3 py-1.5 text-xs font-medium font-code rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-on-surface hover:border-outline active:bg-surface-container transition-all touch-target overflow-hidden"
               aria-label={t("Cambiar idioma", "Switch language")}
             >
-              {lang === "es" ? "EN" : "ES"}
+              <span key={lang} className="inline-block animate-lang-flip">
+                {lang === "es" ? "EN" : "ES"}
+              </span>
             </button>
 
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all"
+              className="group p-2.5 md:p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest active:scale-95 transition-all touch-target"
               aria-label={t("Cambiar tema", "Toggle theme")}
             >
+              <span className="block transition-transform duration-500 ease-out group-active:rotate-45" style={{ transform: theme === 'dark' ? 'rotate(0deg)' : 'rotate(180deg)' }}>
               {theme === "dark" ? (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -149,6 +157,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
+              </span>
             </button>
           </div>
 
@@ -156,9 +165,10 @@ export default function Navigation() {
           <div className="flex md:hidden items-center gap-1">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors"
+              className="group p-2.5 md:p-2 rounded-lg text-on-surface-variant hover:text-on-surface active:scale-95 transition-all touch-target"
               aria-label={t("Cambiar tema", "Toggle theme")}
             >
+              <span className="block transition-transform duration-500 ease-out group-active:rotate-45" style={{ transform: theme === 'dark' ? 'rotate(0deg)' : 'rotate(180deg)' }}>
               {theme === "dark" ? (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -168,6 +178,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
+              </span>
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -210,14 +221,16 @@ export default function Navigation() {
         />
       )}
       {menuOpen && (
-        <div className="fixed top-0 right-0 h-full w-auto min-w-fit z-[70] md:hidden">
+        <div className="fixed top-0 right-0 h-full w-auto min-w-fit z-[70] md:hidden animate-slide-in">
           <div className="h-full w-full bg-surface-container-high shadow-2xl shadow-black/40">
             <div className="flex items-center justify-between p-4 border-b border-outline-variant/20">
               <button
                 onClick={toggleLang}
-                className="px-3 py-1.5 text-xs font-medium font-code rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-on-surface transition-all"
+                className="px-3 py-1.5 text-xs font-medium font-code rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:text-on-surface transition-all overflow-hidden"
               >
-                {lang === "es" ? "EN" : "ES"}
+                <span key={lang} className="inline-block animate-lang-flip">
+                  {lang === "es" ? "EN" : "ES"}
+                </span>
               </button>
               <button
                 onClick={() => setMenuOpen(false)}

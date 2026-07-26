@@ -16,55 +16,67 @@ export default function Hero() {
     >
       {/* ─── Background ambient ─── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-40 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[120px]" />
-        {/* Subtle grain texture */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2YpIiBvcGFjaXR5PSIwIi8+PC9zdmc+')] bg-repeat" />
+        <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] animate-breath" />
+        <div className="absolute bottom-1/4 -right-40 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[120px] animate-breath" style={{ animationDelay: "-2s" }} />
       </div>
 
       <div className="section-container w-full">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
           {/* ─── Text Content ─── */}
           <div className="flex-1 text-center md:text-left md:max-w-xl">
-            <span className="inline-block font-code text-[11px] font-medium tracking-[0.2em] uppercase text-primary-light mb-5 animate-float-delayed">
+            <span
+              className="inline-block font-code type-meta font-medium tracking-[var(--tracking-badge)] uppercase text-primary-light mb-5"
+              style={{ animation: "fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}
+            >
               ✦ {t("hero.badge")}
             </span>
 
-            <h1 className="font-heading text-[40px] md:text-[64px] font-bold leading-[1.05] tracking-[-0.04em] text-on-surface mb-6">
+            <h1
+              className="font-heading type-display font-bold text-on-surface mb-6"
+              style={{ animation: "fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.25s both" }}
+            >
               {personalInfo.name.split(" ")[0]}{" "}
-              <span className="text-primary-light relative">
+              <span className="text-primary-light">
                 {personalInfo.name.split(" ").slice(1).join(" ")}
-                <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-secondary to-tertiary rounded-full opacity-60" />
               </span>
             </h1>
 
-            <p className="text-base md:text-lg font-body text-on-surface-variant leading-[1.75] max-w-xl mx-auto md:mx-0 mb-9">
+            <p
+              className="type-body md:type-body-lg font-body text-on-surface-variant max-w-prose mx-auto md:mx-0 mb-9"
+              style={{ animation: "fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both" }}
+            >
               {t("hero.desc")}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+            <div
+              className="flex flex-wrap gap-3 justify-center md:justify-start"
+              style={{ animation: "fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.55s both" }}
+            >
               <a
                 href={personalInfo.cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 px-6 py-3 bg-primary hover:bg-primary-dark text-on-primary font-medium rounded-[8px] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 active:scale-[1.02]"
+                className="group inline-flex items-center gap-2.5 px-6 py-3 bg-primary hover:bg-primary-dark text-on-primary font-medium rounded-[8px] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 active:scale-95 touch-target"
               >
-                <svg className="w-4 h-4 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 group-hover:translate-y-[-2px] transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 {t("hero.cv")}
               </a>
               <button
                 onClick={() => scrollTo("#contact")}
-                className="inline-flex items-center gap-2.5 px-6 py-3 border border-outline hover:border-primary-light text-on-surface hover:text-primary-light font-medium rounded-[8px] transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 active:scale-[1.02]"
+                className="inline-flex items-center gap-2.5 px-6 py-3 border border-outline hover:border-primary-light text-on-surface hover:text-primary-light font-medium rounded-[8px] transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 active:scale-95 touch-target"
               >
                 {t("hero.contact")}
               </button>
             </div>
 
             {/* Social */}
-            <div className="flex gap-3 mt-9 justify-center md:justify-start">
+            <div
+              className="flex gap-3 mt-9 justify-center md:justify-start"
+              style={{ animation: "fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.7s both" }}
+            >
               {[
                 { href: personalInfo.social.linkedin, label: "LinkedIn" },
                 { href: personalInfo.social.github, label: "GitHub" },
@@ -94,18 +106,17 @@ export default function Hero() {
           </div>
 
           {/* ─── Avatar Card ─── */}
-          <div className="flex-shrink-0">
+          <div
+            className="flex-shrink-0"
+            style={{ animation: "fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s both" }}
+          >
             <div className="relative animate-float">
               {/* Glow orb behind */}
-              <div className="absolute -top-8 -right-8 w-40 h-40 bg-primary/15 rounded-full blur-[60px] animate-pulse-glow" />
-              <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-secondary/10 rounded-full blur-[50px]" />
-
-              {/* Decorative corner dots */}
-              <div className="absolute -top-3 -right-3 w-3 h-3 rounded-full bg-primary-light/40 border border-primary/30" />
-              <div className="absolute -bottom-2 -left-2 w-2 h-2 rounded-full bg-secondary-light/30" />
+              <div className="absolute -top-6 -right-6 w-28 h-28 md:w-40 md:h-40 bg-primary/15 rounded-full blur-[60px] animate-breath" />
+              <div className="absolute -bottom-4 -left-4 w-20 h-20 md:w-28 md:h-28 bg-secondary/10 rounded-full blur-[50px] animate-breath" style={{ animationDelay: "-2.5s" }} />
 
               {/* Card frame */}
-              <div className="relative w-56 h-80 md:w-72 md:h-96 rounded-[12px] overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10 rotate-[2deg] hover:rotate-0 transition-transform duration-500">
+              <div className="relative w-40 h-56 md:w-72 md:h-96 rounded-[12px] overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10 rotate-[2deg] hover:rotate-0 transition-transform duration-500">
                 {/* Gradient overlay on image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-surface/40 via-transparent to-transparent z-10 pointer-events-none" />
                 <img
@@ -120,7 +131,6 @@ export default function Hero() {
 
               {/* Decorative ring */}
               <div className="absolute -inset-3 rounded-[16px] border border-primary/10 -z-10" />
-              <div className="absolute -inset-5 rounded-[20px] border border-secondary/5 -z-20" />
             </div>
           </div>
         </div>
